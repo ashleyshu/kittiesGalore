@@ -4,21 +4,28 @@
     "manifest_version": 2,
     "description": "Become more self-aware about which sites you are most attentive on!",
     "browser_action": {
-        "default_icon": "icon16.png",
-        "default_popup": "popup.html",
+        "default_icon": "icons/icon16.png",
         "default_title": "Attention Tracker"
     },
     "background": {
         "scripts": ["background.js"]
     },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": ["content.js"]
+        }
+    ],
     "permissions": [
         "<all_urls>",
         "tabs",
         "webNavigation"
     ],
     "icons": {
-        "16": "icon16.png",
-        "48": "icon48.png",
-       "128": "icon128.png" 
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+       "128": "icons/icon128.png" 
     }
 }
