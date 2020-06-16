@@ -1,38 +1,26 @@
-console.log("popup script");
-
-chrome.runtime.sendMessage({clicked : true});
-
-// Print all tabs domain names onto popup
-function getAllTabs() {
-
-}
-
-// var currTab = chrome.tabs.getCurrent();
-// document.getElementById("myText").innerHTML = currTab
-document.body.innerHTML = "haha";
-
-chrome.runtime.onMessage.addListener(gotMessage);
-function gotMessage(message, sender, sendResponse) {
-    console.log(message.txt);
-    console.log("that was the message sent from background.js");
-    document.body.innerHTML = message.txt;
-    document.body.innerHTML = "hm";
-};
-
-chrome.runtime.onMessage.addListener(
-    function(request, sender, sendResponse) {
-        if (request.msg === "tab tab tab") {
-            console.log(request.data.subject);
-            console.log(request.data.content);
-
-            document.body.innerHTML = request.data.subject;
-            document.body.innerHTML = request.data.content;
+function ajax_get(url, callback) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        console.log('responseText:' + xmlhttp.responseText);
+        try {
+          var data = JSON.parse(xmlhttp.responseText);
+        } catch (err) {
+          console.log(err.message + " in " + xmlhttp.responseText);
+          return;
         }
-    }
-);
-
-
-
-
-
-
+        callback(data);
+      }
+    };
+  
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+  }
+  
+  ajax_get('https://api.thecatapi.com/v1/images/search?size=20', function(data) {
+    document.getElementById("url").innerHTML = data[0]["url"];
+  
+    var html = '<img src="' + data[0]["url"] + '">';
+    document.getElementById("image").innerHTML = html;
+  });
+  

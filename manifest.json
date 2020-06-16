@@ -1,11 +1,12 @@
 {
-    "name": "Attention Tracker",
+    "name": "Kitties Galore",
     "version": "1.0",
     "manifest_version": 2,
-    "description": "Become more self-aware about which sites you are most attentive on!",
+    "description": "Let some cute cats increase your spirits!",
     "browser_action": {
-        "default_icon": "icons/icon16.png",
-        "default_title": "Attention Tracker"
+        "default_icon": "icons/icon48.png",
+        "default_popup": "popup.html",
+        "default_title": "Kitties Galore"
     },
     "background": {
         "scripts": ["background.js"]
