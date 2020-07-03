@@ -1,0 +1,30 @@
+/* POPUP */
+body {
+    /* width: 140%;
+    height: 140%; */
+    background-color: rgb(23, 22, 39);
+    padding: 20px 40px;
+    color: white;
+}
+
+li {
+    list-style: none;
+    padding: 10px;
+    
+}
+
+/* TEXT */
+h1 {
+    color: beige;
+    text-align: center;
+}
+
+/* BUTTON */
+button {
+        background-color: beige;
+        padding: 5px;
+        border-radius: 10px;
+        float: right;
+        margin-bottom: 10px;
+        font-family: 'Courier New', Courier, monospace;
+    }
