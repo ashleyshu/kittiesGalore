@@ -8,6 +8,12 @@
         "default_popup": "popup.html",
         "default_title": "Kitties Galore"
     },
+<<<<<<< HEAD
+=======
+    "background": {
+        "scripts": ["background.js"]
+    },
+>>>>>>> 3188e8816b92a9861fc30943fc42abf2f8f59962
     "content_scripts": [
         {
             "matches": [
